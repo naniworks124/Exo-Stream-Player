@@ -3,7 +3,7 @@ name: Build Exo Stream Player APK
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main  # your default branch
 
 jobs:
   build:
@@ -18,6 +18,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Build APK
         run: ./gradlew assembleDebug
